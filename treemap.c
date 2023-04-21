@@ -74,11 +74,13 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
   if (tree->root == NULL) return NULL;
   
   tree->current = tree->root;
+  
   while(tree->current != NULL){
+    
     if(is_equal(tree, tree->current->pair->key, key) == 1){
       return tree->current->pair;
     }
-    if(tree->lower_than(tree->current->pair->key, key) > 0){
+    if(tree->lower_than(tree->current->pair->key, key) < 0){
       tree->current = tree->current->left;
     }
     else{
