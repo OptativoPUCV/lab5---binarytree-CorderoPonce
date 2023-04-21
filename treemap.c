@@ -54,7 +54,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         if (current->left == NULL){
           current->left = node;
           current->left->parent = current;
-          tree->current = current;
+          tree->current = node;
           return;  
         }
         current = current->left;
@@ -63,7 +63,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
         if (current->right == NULL){
           current->right = node;
           current->right->parent = current;
-          tree->current = current;
+          tree->current = node;
           return;
         }
         current = current->right;
@@ -86,6 +86,33 @@ TreeNode * minimum(TreeNode * x){
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
+  if (searchTreeMap(tree, node->pair->key) != NULL){
+    if (node->left == NULL && node->right == NULL){
+      
+      if(node->parent->left == node){
+        node->parent->left = NULL;
+      }
+      if(node->parent->right == node){
+        node->parent->right = NULL;
+      }
+      
+      return;
+    }
+    if (node->left == NULL && node->right != NULL){
+      node->parent = node->right;
+      node->right = node;
+      return;
+    }
+    if (node->left != NULL && node->right == NULL){
+      node->parent = node->left;
+      node->left = node;
+      return;
+    }
+    if (node->left != NULL && node->right != NULL){
+      
+    }
+    
+  }
 
 }
 
