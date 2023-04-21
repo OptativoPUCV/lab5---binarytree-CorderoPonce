@@ -211,3 +211,9 @@ treemap.c:59:17: error: ‘minimun’ is used uninitialized [-Werror=uninitializ
 cc1: all warnings being treated as errors
 Compilation failed
 d4740ef
+Fri 21 Apr 2023 07:03:08 PM UTC: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ tests:  8|7
+total_score: 5/70
+1631471
