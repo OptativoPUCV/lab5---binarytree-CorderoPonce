@@ -95,13 +95,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       if(node->parent->right == node){
         node->parent->right = NULL;
       }
-      
       return;
     }
-    
     if (node->left == NULL && node->right != NULL){
       node->right->parent = node->parent;
-      
       return;
     }
     if (node->left != NULL && node->right == NULL){
@@ -118,9 +115,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       node->pair = aux->pair;
       removeNode(tree,aux);
     }
-    
   }
-
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
@@ -155,13 +150,11 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  if(searchTreeMap(tree, key) == NULL){
+  Pair *node = searchTreeMap(tree, key);
+  if(node == NULL){
     
   }
-  else{
-    
-  }
-    return NULL;
+  else return node;
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
@@ -173,36 +166,28 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-  if (tree->root == NULL) {
-    // el árbol está vacío, no hay siguiente elemento
-    return NULL;
-  }
+  if (tree->root == NULL) return NULL;
 
   TreeNode *current = tree->current;
   if (current == NULL) {
-    // el nodo actual es nulo, devolver el primer elemento del árbol
     current = minimum(tree->root);
     tree->current = current;
     return current->pair;
   }
 
   if (current->right != NULL) {
-    // si el nodo actual tiene un hijo derecho, el siguiente elemento es el mínimo en el subárbol derecho
     current = minimum(current->right);
     tree->current = current;
     return current->pair;
   } else {
-    // si el nodo actual no tiene un hijo derecho, el siguiente elemento es el primer ancestro que es un hijo izquierdo
     TreeNode *parent = current->parent;
     while (parent != NULL && current == parent->right) {
       current = parent;
       parent = parent->parent;
     }
     if (parent == NULL) {
-      // el nodo actual es el último elemento en orden ascendente
       return NULL;
     } else {
-      // el siguiente elemento es el primer ancestro que es un hijo izquierdo
       tree->current = parent;
       return parent->pair;
     }
