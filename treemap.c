@@ -109,7 +109,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       return;
     }
     if (node->left != NULL && node->right != NULL){
-      TreeNode *aux = minimun(node->right);
+      TreeNode *aux = minimum(node->right);
       node->pair = aux->pair;
       removeNode(aux);
     }
