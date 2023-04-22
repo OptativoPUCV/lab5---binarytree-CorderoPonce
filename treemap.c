@@ -152,6 +152,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 Pair * upperBound(TreeMap * tree, void* key) {
   Pair *node = searchTreeMap(tree, key);
   if(node == NULL){
+    return node;
     
   }
   else return node;
