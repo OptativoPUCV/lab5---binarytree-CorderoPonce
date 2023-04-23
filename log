@@ -598,3 +598,25 @@ treemap.c:172:1: error: control reaches end of non-void function [-Werror=return
 cc1: all warnings being treated as errors
 Compilation failed
 c063ff5
+Sun 23 Apr 2023 12:14:57 AM UTC: 
+ treemap.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:162:10: error: assignment to ‘TreeNode *’ from incompatible pointer type ‘Pair *’ [-Werror=incompatible-pointer-types]
+  162 |     node = current->pair;
+      |          ^
+treemap.c: At top level:
+treemap.c:171:3: error: expected identifier or ‘(’ before ‘if’
+  171 |   if(node != NULL) return node->pair;
+      |   ^~
+treemap.c:172:1: error: expected identifier or ‘(’ before ‘}’ token
+  172 | }
+      | ^
+treemap.c: In function ‘upperBound’:
+treemap.c:169:1: error: control reaches end of non-void function [-Werror=return-type]
+  169 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+78e2b72
