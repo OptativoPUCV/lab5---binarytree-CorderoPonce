@@ -150,7 +150,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 
 Pair * upperBound(TreeMap * tree, void* key) {
-  Pair *node = searchTreeMap(tree, key);
+  TreeNode *node->pair = searchTreeMap(tree, key);
   
   if(node == NULL){
     if (tree->root == NULL) return NULL;
