@@ -159,7 +159,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     while(current != NULL){
     if(tree->lower_than(current->pair->key, key) == -1){
       node = current;
-      current = current->left
+      current = current->left;
     }
     else{
       current = current->right;
